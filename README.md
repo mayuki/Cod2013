@@ -9,16 +9,16 @@ HTMLアプリをWindowsストアプリに。 - Community Open Day 2013
 
 もっとWindowsストアアプリっぽくする
 --------------------------------
-1. default.htmlにApp.htmlの内容をコピーする
-2. Start pageをdefault.htmlにもどす
-3. とりあえず実行してみる
-4. Blendで開く
-5. AppBarを追加する
-	1. Saveボタン (savelocal)
-	2. Importボタン (add)
-	3. SaveボタンのonclickオプションにsaveToLocalを指定
-	4. saveToLocal関数にWinJS.Utilities.markSupportedForProcessing(saveToLocal)を適用
-	5. ファイル選択ダイアログを表示する関数を追加する
+- default.htmlにApp.htmlの内容をコピーする
+- Start pageをdefault.htmlにもどす
+- とりあえず実行してみる
+- Blendで開く
+- AppBarを追加する
+- Saveボタン (savelocal)
+- Importボタン (add)
+- SaveボタンのonclickオプションにsaveToLocalを指定
+- saveToLocal関数にWinJS.Utilities.markSupportedForProcessing(saveToLocal)を適用
+- ファイル選択ダイアログを表示する関数を追加する
 
 ```JavaScript
 function openFilePicker() {
@@ -28,12 +28,16 @@ function openFilePicker() {
 WinJS.Utilities.markSupportedForProcessing(openFilePicker);
 ```
 
-	6. ImportボタンのonclickオプションにopenFilePickerを指定
-	7. Sepiaボタン(pictures)を追加
-	WinJS.Utilities.markSupportedForProcessing(processImages);
-	8. SepiaボタンのonclickオプションにprocessImagesを指定
-	9. Penボタン(highlight)を追加
-	10. ペンモードを切り替える関数を追加
+- ImportボタンのonclickオプションにopenFilePickerを指定
+- Sepiaボタン(pictures)を追加
+
+```JavaScript```
+WinJS.Utilities.markSupportedForProcessing(processImages);
+```
+
+- SepiaボタンのonclickオプションにprocessImagesを指定
+- Penボタン(highlight)を追加
+- ペンモードを切り替える関数を追加
 
 ```JavaScript
 function switchPenMode(command) {
@@ -43,15 +47,15 @@ function switchPenMode(command) {
 WinJS.Utilities.markSupportedForProcessing(switchPenMode);
 ```
 
-	11. PenボタンのonclickオプションにswitchPenModeを指定
-6. css/app.css からGrid Layout/その他見た目のスタイルを削除
-7. #controlsをdisplay:noneに
+- PenボタンのonclickオプションにswitchPenModeを指定
+- css/app.css からGrid Layout/その他見た目のスタイルを削除
+- #controlsをdisplay:noneに
 
 カメラを使う機能を付ける
 ----------------------
-1. AppBarにCameraボタン(camera)を追加する
-2. CapabilitiesのWebcamにチェックを入れる
-コードを追加
+- AppBarにCameraボタン(camera)を追加する
+- CapabilitiesのWebcamにチェックを入れる
+- コードを追加
 
 ```JavaScript
 /* =====================================================================
@@ -69,5 +73,6 @@ function captureImageFromCamera() {
 }
 WinJS.Utilities.markSupportedForProcessing(captureImageFromCamera);
 ```
-3. CameraボタンのonclickにcaptureImageFromCameraを指定
+
+- CameraボタンのonclickにcaptureImageFromCameraを指定
 
