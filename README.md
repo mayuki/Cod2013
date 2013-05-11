@@ -1,3 +1,6 @@
+HTMLアプリをWindowsストアプリに。 - Community Open Day 2013
+==========================================================
+
 1. Visual StudioでWindows Store AppsのJavaScriptアプリケーション (Blank App) を作成する
 2. App.htmlとcss,jsフォルダをプロジェクトに放り込む
 3. Start pageをdefault.htmlからApp.htmlにする
@@ -16,6 +19,7 @@
 	3. SaveボタンのonclickオプションにsaveToLocalを指定
 	4. saveToLocal関数にWinJS.Utilities.markSupportedForProcessing(saveToLocal)を適用
 	5. ファイル選択ダイアログを表示する関数を追加する
+
 ```JavaScript
 function openFilePicker() {
     var inputE = document.querySelector('#filePicker');
@@ -23,12 +27,14 @@ function openFilePicker() {
 }
 WinJS.Utilities.markSupportedForProcessing(openFilePicker);
 ```
+
 	6. ImportボタンのonclickオプションにopenFilePickerを指定
 	7. Sepiaボタン(pictures)を追加
 	WinJS.Utilities.markSupportedForProcessing(processImages);
 	8. SepiaボタンのonclickオプションにprocessImagesを指定
 	9. Penボタン(highlight)を追加
 	10. ペンモードを切り替える関数を追加
+
 ```JavaScript
 function switchPenMode(command) {
     command.target.winControl.selected = !command.target.winControl.selected;
@@ -39,7 +45,7 @@ WinJS.Utilities.markSupportedForProcessing(switchPenMode);
 
 	11. PenボタンのonclickオプションにswitchPenModeを指定
 6. css/app.css からGrid Layout/その他見た目のスタイルを削除
-6. #controlsをdisplay:noneに
+7. #controlsをdisplay:noneに
 
 カメラを使う機能を付ける
 ----------------------
