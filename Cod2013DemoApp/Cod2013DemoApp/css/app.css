@@ -1,0 +1,99 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#stage {
+    width: 1366px;
+    height: 768px;
+
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+
+    -ms-touch-action: none;
+}
+#stage #images {
+    width: 100%;
+    height: 100%;
+}
+
+#stage .image-item {
+    position: absolute;
+    max-width: 600px;
+    cursor: move;
+}
+#stage .image-item:active {
+    outline: 3px dotted #ff8080;
+}
+
+
+/* ==============
+ * CSS Animations
+ * ==============*/
+@keyframes image-item-appear {
+    from {
+        -ms-transform: scale(0.25, 0.25) rotate(-15deg);
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+@keyframes image-item-remove {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+.image-item {
+    opacity: 0;
+}
+    .image-item.show {
+        animation-duration: 0.25s;
+        animation-name: image-item-appear;
+        opacity: 1;
+    }
+    .image-item.remove {
+        animation-duration: 0.25s;
+        animation-name: image-item-remove;
+        opacity: 1;
+    }
+
+
+/* ==============
+ * Canvas用
+ * ==============*/
+#stage #paint-canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: none;
+}
+    #stage #paint-canvas.enabled {
+        display: block;
+    }
+
+
+/* ==================
+ * Web Workersの処理用
+ * ================== */
+#stage progress {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+
+    display: none;
+    z-index: 101;
+}
+
+.processing #stage progress {
+    display: inline;
+}
+
+#controls { display: none; }
